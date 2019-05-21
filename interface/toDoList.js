@@ -58,10 +58,11 @@ app.route.put('/completeTask',  async function (req) {
     return res;
 });
 
-app.route.getTask('/getTask',  async function (req) {
+app.route.get('/getTask',  async function (req) {
     console.log("req: ", req);
-    let result = await app.model.Todolist.all({
+    let result = await app.model.Todolist.findAll({
         condition: { owner: req.query.address }
     });
+    console.log('result: ', result);
     return result;
 });
